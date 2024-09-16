@@ -17,7 +17,7 @@ import static org.junit.Assert.assertFalse;
 public class JsonPlaceApiTest {
 
     @Test
-    public void getSingleRequest(){
+    public void getSingleRequest(){ // ADDED COMMENT FOR PULL REQUEST TEST
 
         Response getResponse = new JsonPlaceClient()
                 .getRequest("28");
