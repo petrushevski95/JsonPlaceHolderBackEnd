@@ -3,14 +3,13 @@ package client;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import models.request.JsonPlaceModelRequestPOST;
-import models.request.JsonPlaceModelRequestPUT;
+import models.request.JsonPlaceModelRequestPOST_PUT;
 
 import static utils.Configuration.*;
 
 public class JsonPlaceClient {
 
-    public Response putRequest(JsonPlaceModelRequestPUT request, String id) {
+    public Response putRequest(JsonPlaceModelRequestPOST_PUT request, String id) {
         return RestAssured
                 .given()
                 .contentType(ContentType.JSON)
@@ -20,7 +19,7 @@ public class JsonPlaceClient {
                 .thenReturn();
     }
 
-    public Response postRequest(JsonPlaceModelRequestPOST request) {
+    public Response postRequest(JsonPlaceModelRequestPOST_PUT request) {
         return RestAssured
                 .given()
                 .contentType(ContentType.JSON)

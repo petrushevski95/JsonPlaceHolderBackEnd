@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class JsonPlaceModelResponsePUT {
+public class JsonPlaceModelResponseGET_POST_PUT {
 
     int id;
     int userId;

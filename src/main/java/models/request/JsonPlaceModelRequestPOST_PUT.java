@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class JsonPlaceModelRequestPUT {
+public class JsonPlaceModelRequestPOST_PUT {
 
     String title;
     String body;

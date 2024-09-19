@@ -2,17 +2,14 @@ import client.JsonPlaceClient;
 import data.JsonPlaceDataFactoryPOST;
 import data.JsonPlaceDataFactoryPUT;
 import io.restassured.response.Response;
-import models.request.JsonPlaceModelRequestPOST;
-import models.request.JsonPlaceModelRequestPUT;
-import models.response.JsonPlaceModelResponseGET_GETALL;
-import models.response.JsonPlaceModelResponsePOST;
-import models.response.JsonPlaceModelResponsePUT;
+import models.request.JsonPlaceModelRequestPOST_PUT;
+import models.response.JsonPlaceModelResponseGET_POST_PUT;
 import org.junit.Test;
 
 import java.util.List;
 
 import static objectbuilder.JsonPlacePOST.createBodyForPostRequest;
-import static objectbuilder.JsonPlacePUT.createBodyForPutRequest;
+import static objectbuilder.JsonPlacePOST.createBodyForPutRequest;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
@@ -23,10 +20,10 @@ public class JsonPlaceApiTest {
         Response getResponse = new JsonPlaceClient()
                 .getAllPost();
 
-        List<JsonPlaceModelResponseGET_GETALL> response = getResponse
+        List<JsonPlaceModelResponseGET_POST_PUT> response = getResponse
                 .body()
                 .jsonPath()
-                .getList("", JsonPlaceModelResponseGET_GETALL.class);
+                .getList("", JsonPlaceModelResponseGET_POST_PUT.class);
 
         assertEquals(200,getResponse.statusCode());
         assertFalse(response.isEmpty());
@@ -42,8 +39,8 @@ public class JsonPlaceApiTest {
         Response getResponse = new JsonPlaceClient()
                 .getSingleRequest("28");
 
-        JsonPlaceModelResponseGET_GETALL
-                response = getResponse.body().as(JsonPlaceModelResponseGET_GETALL.class);
+        JsonPlaceModelResponseGET_POST_PUT
+                response = getResponse.body().as(JsonPlaceModelResponseGET_POST_PUT.class);
 
         assertEquals(200, getResponse.statusCode());
         assertEquals("delectus ullam et corporis nulla voluptas sequi",response.getTitle());
@@ -52,14 +49,14 @@ public class JsonPlaceApiTest {
 
     @Test
     public void postRequestDefaultValuesTest() {
-        JsonPlaceModelRequestPOST requestBody = new JsonPlaceDataFactoryPOST(createBodyForPostRequest())
+        JsonPlaceModelRequestPOST_PUT requestBody = new JsonPlaceDataFactoryPOST(createBodyForPostRequest())
                 .createRequest();
 
 
         Response postResponse = new JsonPlaceClient()
                 .postRequest(requestBody);
 
-        JsonPlaceModelResponsePOST response = postResponse.body().as(JsonPlaceModelResponsePOST.class);
+        JsonPlaceModelResponseGET_POST_PUT response = postResponse.body().as(JsonPlaceModelResponseGET_POST_PUT.class);
 
         assertEquals(201, postResponse.statusCode());
         assertEquals("Default value", response.getBody());
@@ -69,7 +66,7 @@ public class JsonPlaceApiTest {
 
     @Test
     public void postRequestUpdatedValuesTest() {
-        JsonPlaceModelRequestPOST requestBody = new JsonPlaceDataFactoryPOST(createBodyForPostRequest())
+        JsonPlaceModelRequestPOST_PUT requestBody = new JsonPlaceDataFactoryPOST(createBodyForPostRequest())
                 .setBody("Updated value")
                 .setTitle("Updated value")
                 .createRequest();
@@ -78,7 +75,7 @@ public class JsonPlaceApiTest {
         Response postResponse = new JsonPlaceClient()
                 .postRequest(requestBody);
 
-        JsonPlaceModelResponsePOST response = postResponse.body().as(JsonPlaceModelResponsePOST.class);
+        JsonPlaceModelResponseGET_POST_PUT response = postResponse.body().as(JsonPlaceModelResponseGET_POST_PUT.class);
 
         assertEquals(201, postResponse.statusCode());
         assertEquals("Updated value", response.getBody());
@@ -87,12 +84,12 @@ public class JsonPlaceApiTest {
 
     @Test
     public void putDefaultValuesRequestTest() {
-        JsonPlaceModelRequestPUT requestBody = new JsonPlaceDataFactoryPUT(createBodyForPutRequest())
+        JsonPlaceModelRequestPOST_PUT requestBody = new JsonPlaceDataFactoryPUT(createBodyForPutRequest())
                 .createRequest();
 
         Response putResponse = new JsonPlaceClient().putRequest(requestBody, "28");
 
-        JsonPlaceModelResponsePUT response = putResponse.body().as(JsonPlaceModelResponsePUT.class);
+        JsonPlaceModelResponseGET_POST_PUT response = putResponse.body().as(JsonPlaceModelResponseGET_POST_PUT.class);
 
         assertEquals(200, putResponse.statusCode());
         assertEquals("Default value", response.getBody());
@@ -101,14 +98,14 @@ public class JsonPlaceApiTest {
 
     @Test
     public void putUpdatedValuesRequestTest() {
-        JsonPlaceModelRequestPUT requestBody = new JsonPlaceDataFactoryPUT(createBodyForPutRequest())
+        JsonPlaceModelRequestPOST_PUT requestBody = new JsonPlaceDataFactoryPUT(createBodyForPutRequest())
                 .setBody("Updated value")
                 .setTitle("Updated value")
                 .createRequest();
 
         Response putResponse = new JsonPlaceClient().putRequest(requestBody, "28");
 
-        JsonPlaceModelResponsePUT response = putResponse.body().as(JsonPlaceModelResponsePUT.class);
+        JsonPlaceModelResponseGET_POST_PUT response = putResponse.body().as(JsonPlaceModelResponseGET_POST_PUT.class);
 
         assertEquals(200, putResponse.statusCode());
         assertEquals("Updated value", response.getBody());

@@ -1,12 +1,12 @@
 package data;
 
-import models.request.JsonPlaceModelRequestPOST;
+import models.request.JsonPlaceModelRequestPOST_PUT;
 
 public class JsonPlaceDataFactoryPOST {
 
-    private final JsonPlaceModelRequestPOST request;
+    private final JsonPlaceModelRequestPOST_PUT request;
 
-    public JsonPlaceDataFactoryPOST(JsonPlaceModelRequestPOST requestBody) {
+    public JsonPlaceDataFactoryPOST(JsonPlaceModelRequestPOST_PUT requestBody) {
         request = requestBody;
     }
 
@@ -24,7 +24,7 @@ public class JsonPlaceDataFactoryPOST {
         return this;
     }
 
-    public JsonPlaceModelRequestPOST createRequest() {
+    public JsonPlaceModelRequestPOST_PUT createRequest() {
         return request;
     }
 }
