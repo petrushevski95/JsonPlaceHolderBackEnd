@@ -8,8 +8,7 @@ import org.junit.Test;
 
 import java.util.List;
 
-import static objectbuilder.JsonPlacePOST_PUT.createBodyForPostRequest;
-import static objectbuilder.JsonPlacePOST_PUT.createBodyForPutRequest;
+import static objectbuilder.JsonPlacePOST_PUT.createBodyForPostAndPutRequest;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
@@ -49,7 +48,7 @@ public class JsonPlaceApiTest {
 
     @Test
     public void postRequestDefaultValuesTest() {
-        JsonPlaceModelRequestPOST_PUT requestBody = new JsonPlaceDataFactoryPOST(createBodyForPostRequest())
+        JsonPlaceModelRequestPOST_PUT requestBody = new JsonPlaceDataFactoryPOST(createBodyForPostAndPutRequest())
                 .createRequest();
 
 
@@ -66,7 +65,7 @@ public class JsonPlaceApiTest {
 
     @Test
     public void postRequestUpdatedValuesTest() {
-        JsonPlaceModelRequestPOST_PUT requestBody = new JsonPlaceDataFactoryPOST(createBodyForPostRequest())
+        JsonPlaceModelRequestPOST_PUT requestBody = new JsonPlaceDataFactoryPOST(createBodyForPostAndPutRequest())
                 .setBody("Updated value")
                 .setTitle("Updated value")
                 .createRequest();
@@ -84,7 +83,7 @@ public class JsonPlaceApiTest {
 
     @Test
     public void putDefaultValuesRequestTest() {
-        JsonPlaceModelRequestPOST_PUT requestBody = new JsonPlaceDataFactoryPUT(createBodyForPutRequest())
+        JsonPlaceModelRequestPOST_PUT requestBody = new JsonPlaceDataFactoryPUT(createBodyForPostAndPutRequest())
                 .createRequest();
 
         Response putResponse = new JsonPlaceClient().putRequest(requestBody, "28");
@@ -98,7 +97,7 @@ public class JsonPlaceApiTest {
 
     @Test
     public void putUpdatedValuesRequestTest() {
-        JsonPlaceModelRequestPOST_PUT requestBody = new JsonPlaceDataFactoryPUT(createBodyForPutRequest())
+        JsonPlaceModelRequestPOST_PUT requestBody = new JsonPlaceDataFactoryPUT(createBodyForPostAndPutRequest())
                 .setBody("Updated value")
                 .setTitle("Updated value")
                 .createRequest();
