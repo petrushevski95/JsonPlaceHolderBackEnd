@@ -8,8 +8,8 @@ import org.junit.Test;
 
 import java.util.List;
 
-import static objectbuilder.JsonPlacePOST.createBodyForPostRequest;
-import static objectbuilder.JsonPlacePOST.createBodyForPutRequest;
+import static objectbuilder.JsonPlacePOST_PUT.createBodyForPostRequest;
+import static objectbuilder.JsonPlacePOST_PUT.createBodyForPutRequest;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
