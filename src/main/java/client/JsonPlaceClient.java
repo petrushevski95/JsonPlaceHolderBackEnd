@@ -10,7 +10,7 @@ import static utils.Configuration.*;
 
 public class JsonPlaceClient {
 
-    public Response updatePut(JsonPlaceModelRequestPUT request, String id) {
+    public Response putRequest(JsonPlaceModelRequestPUT request, String id) {
         return RestAssured
                 .given()
                 .contentType(ContentType.JSON)
@@ -38,7 +38,7 @@ public class JsonPlaceClient {
                 .thenReturn();
     }
 
-    public Response getPost(String id) {
+    public Response getSingleRequest(String id) {
         return RestAssured
                 .given()
                 .when().log().all()
@@ -46,7 +46,7 @@ public class JsonPlaceClient {
                 .thenReturn();
     }
 
-    public Response deletePost(String id) {
+    public Response deleteRequest(String id) {
         return RestAssured
                 .given()
                 .when().log().all()

@@ -19,7 +19,7 @@ import static org.junit.Assert.assertFalse;
 public class JsonPlaceApiTest {
 
     @Test
-    public void getAllRequestTest(){
+    public void getAllRequestTest() {
         Response getResponse = new JsonPlaceClient()
                 .getAllPost();
 
@@ -33,14 +33,14 @@ public class JsonPlaceApiTest {
     }
 
     @Test
-    public void getSingleRequestTest(){
+    public void getSingleRequestTest() {
         String body = "non et quaerat ex quae ad maiores\n" +
                 "maiores recusandae totam aut blanditiis mollitia quas illo\n" +
                 "ut voluptatibus voluptatem\n" +
                 "similique nostrum eum";
 
         Response getResponse = new JsonPlaceClient()
-                .getPost("28");
+                .getSingleRequest("28");
 
         JsonPlaceModelResponseGET_GETALL
                 response = getResponse.body().as(JsonPlaceModelResponseGET_GETALL.class);
@@ -86,11 +86,11 @@ public class JsonPlaceApiTest {
     }
 
     @Test
-    public void putDefaultValuesTest() {
+    public void putDefaultValuesRequestTest() {
         JsonPlaceModelRequestPUT requestBody = new JsonPlaceDataFactoryPUT(createBodyForPutRequest())
                 .createRequest();
 
-        Response putResponse = new JsonPlaceClient().updatePut(requestBody, "28");
+        Response putResponse = new JsonPlaceClient().putRequest(requestBody, "28");
 
         JsonPlaceModelResponsePUT response = putResponse.body().as(JsonPlaceModelResponsePUT.class);
 
@@ -106,7 +106,7 @@ public class JsonPlaceApiTest {
                 .setTitle("Updated value")
                 .createRequest();
 
-        Response putResponse = new JsonPlaceClient().updatePut(requestBody, "28");
+        Response putResponse = new JsonPlaceClient().putRequest(requestBody, "28");
 
         JsonPlaceModelResponsePUT response = putResponse.body().as(JsonPlaceModelResponsePUT.class);
 
@@ -116,9 +116,9 @@ public class JsonPlaceApiTest {
     }
 
     @Test
-    public void deletePost(){
+    public void deleteRequestTest() {
         Response getResponse = new JsonPlaceClient()
-                .deletePost("20");
+                .deleteRequest("20");
 
         assertEquals(200,getResponse.statusCode());
     }

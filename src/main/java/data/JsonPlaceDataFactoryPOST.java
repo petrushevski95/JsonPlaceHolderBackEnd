@@ -11,7 +11,7 @@ public class JsonPlaceDataFactoryPOST {
     }
 
     public JsonPlaceDataFactoryPOST setTitle(String value) {
-        if(value.length() > 40)
+        if(value.length() > 20)
             throw new IllegalArgumentException("Title is too long (max 20 characters)");
         request.setTitle(value);
         return this;
@@ -19,7 +19,7 @@ public class JsonPlaceDataFactoryPOST {
 
     public JsonPlaceDataFactoryPOST setBody(String value) {
         if(value.length() > 40)
-            throw new IllegalArgumentException("Body is too long (max 40 characters)");
+            throw new IllegalArgumentException("Body is too long (max 20 characters)");
         request.setBody(value);
         return this;
     }
