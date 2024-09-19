@@ -15,4 +15,5 @@ public class JsonPlaceModelResponseGET_GETALL {
     int userId;
     String body;
     String title;
+
 }

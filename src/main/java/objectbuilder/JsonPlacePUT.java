@@ -4,7 +4,7 @@ import models.request.JsonPlaceModelRequestPUT;
 
 public class JsonPlacePUT {
 
-    public static JsonPlaceModelRequestPUT createBodyForPutRequest(){
+    public static JsonPlaceModelRequestPUT createBodyForPutRequest() {
         return JsonPlaceModelRequestPUT.builder()
                 .title("Default value")
                 .body("Default value")

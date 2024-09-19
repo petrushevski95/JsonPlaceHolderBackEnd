@@ -13,4 +13,5 @@ public class JsonPlaceModelRequestPOST {
 
     String title;
     String body;
+
 }

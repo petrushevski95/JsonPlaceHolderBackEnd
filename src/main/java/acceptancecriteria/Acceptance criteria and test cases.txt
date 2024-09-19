@@ -1,0 +1,243 @@
+ACCEPTANCE CRITERIA:
+
+
+Test Scenario 1: Successfull get request (Get all user's)
+GIVEN a get all request is sent to the endpoint (https://jsonplaceholder.typicode.com/posts),
+WHEN the server response is status code: 200OK,
+THEN server respond back with body result printed like this:
+[
+    {
+        "userId": 1,
+        "id": 1,
+        "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+        "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+    },
+    {
+        "userId": 1,
+        "id": 2,
+        "title": "qui est esse",
+        "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
+    },
+    {
+        "userId": 1,
+        "id": 3,
+        "title": "ea molestias quasi exercitationem repellat qui ipsa sit aut",
+        "body": "et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut"
+    },
+    {
+        "userId": 1,
+        "id": 4,
+        "title": "eum et est occaecati",
+        "body": "ullam et saepe reiciendis voluptatem adipisci\nsit amet autem assumenda provident rerum culpa\nquis hic commodi nesciunt rem tenetur doloremque ipsam iure\nquis sunt voluptatem rerum illo velit"
+    },
+
+
+Test Scenario 2: Successfull get request (Get a single user)
+GIVEN a get request is sent to the endpoint (https://jsonplaceholder.typicode.com/posts/28),
+WHEN the server response is status code: 200OK,
+THEN server respond back with body result printed like this:
+{
+    "userId": 3,
+    "id": 28,
+    "title": "delectus ullam et corporis nulla voluptas sequi",
+    "body": "non et quaerat ex quae ad maiores\nmaiores recusandae totam aut blanditiis mollitia quas illo\nut voluptatibus voluptatem\nsimilique nostrum eum"
+}
+
+
+Test Scenario 3: Successfull post request
+GIVEN a post request is sent to the endpoint (https://jsonplaceholder.typicode.com/posts),
+AND a sent body request is like this:
+{
+   	 "title": "value",
+     "body": "value",
+}
+WHEN the server response is status code: 201Created,
+THEN server respond back with body result printed like this:
+{
+     "id": 101,
+   	 "title": "value",
+     "body": "value",
+     "userId": 1
+}
+
+
+Test Scenario 4: Successfull put request
+GIVEN a put request is sent to the endpoint (https://jsonplaceholder.typicode.com/posts/[id]),
+AND a sent body request is like this:
+{
+    "id": [id],
+    "title": "value",
+    "body": "value"
+}
+WHEN the server response is status code: 200OK,
+THEN server respond back with body result printed like this:
+{
+    "id": [id],
+    "title": "value",
+    "body": "value"
+}
+
+
+Test Scenario 5: Delete user
+GIVEN a delete request is sent to the endpoint (https://jsonplaceholder.typicode.com/posts/[id]),
+WHEN the server response is status code: 200OK,
+THEN server respond back with body result printed like this: {}
+
+
+TEST CASES: ------------------------------------------------------------------------------------------------------------
+
+
+Test Case 1: Successfull get request (Get all user's) (PASS)
+GIVEN a get all request is sent to the endpoint (https://jsonplaceholder.typicode.com/posts),
+WHEN the server response is status code: 200OK,
+THEN server respond back with body result printed like this:
+[
+{
+        "userId": 1,
+        "id": 1,
+        "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+        "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+},
+{
+        "userId": 1,
+        "id": 2,
+        "title": "qui est esse",
+        "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
+},
+{
+        "userId": 1,
+        "id": 3,
+        "title": "ea molestias quasi exercitationem repellat qui ipsa sit aut",
+        "body": "et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut"
+},
+{
+        "userId": 1,
+        "id": 4,
+        "title": "eum et est occaecati",
+        "body": "ullam et saepe reiciendis voluptatem adipisci\nsit amet autem assumenda provident rerum culpa\nquis hic commodi nesciunt rem tenetur doloremque ipsam iure\nquis sunt voluptatem rerum illo velit"
+},
+
+
+Test Case 2: Successfull get request (Get a single user) (PASS)
+GIVEN a get request is sent to the endpoint (https://jsonplaceholder.typicode.com/posts),
+AND a get request is made for the user with an id "28" (https://jsonplaceholder.typicode.com//posts/28)
+AND values for the user with an id  "28" are:
+{
+     "userId": 3,
+     "id": 28,
+     "title": "delectus ullam et corporis nulla voluptas sequi",
+     "body": "non et quaerat ex quae ad maiores\nmaiores recusandae totam aut blanditiis mollitia quas illo\nut voluptatibus voluptatem\nsimilique nostrum eum"
+}
+WHEN the server response is status code: 200OK,
+THEN server respond back with body result printed like this:
+{
+     "userId": 3,
+     "id": 28,
+     "title": "delectus ullam et corporis nulla voluptas sequi",
+     "body": "non et quaerat ex quae ad maiores\nmaiores recusandae totam aut blanditiis mollitia quas illo\nut voluptatibus voluptatem\nsimilique nostrum eum"
+}
+
+
+Test Case 3: Successfull post request (Default values) (PASS)
+GIVEN a post request is sent to the endpoint (https://jsonplaceholder.typicode.com/posts),
+AND a post request is made to create a new user (https://jsonplaceholder.typicode.com/posts)
+AND the body request for the new user has these values and look like this:
+{
+    "title": "Default value",
+    "body": "Default value"
+}
+WHEN the server response is status code: 201Created,
+AND new user is created,
+THEN server respond back with body result printed like this:
+{
+    "title": "Default value",
+    "body": "Default value",
+    "id": 101
+}
+
+
+Test Case 4: Successfull post request (Updated values) (PASS)
+GIVEN a post request is sent to the endpoint (https://jsonplaceholder.typicode.com/posts),
+AND a post request is made to create a new user (https://jsonplaceholder.typicode.com/posts)
+AND the body request for the new user has these values and look like this:
+{
+    "title": "Updated value",
+    "body": "Updated value"
+}
+WHEN the server response is status code: 201Created,
+AND new user is created,
+THEN server respond back with body result printed like this:
+{
+    "title": "Updated value",
+    "body": "Updated value",
+    "id": 101
+}
+
+
+Test Case 5: Successfull put request (Default values) (PASS)
+GIVEN a put request is sent to the endpoint (https://jsonplaceholder.typicode.com/posts),
+AND a put request is made for the user with the id "28" (https://jsonplaceholder.typicode.com//posts/28)
+AND user with the id "28" has values like this:
+{
+    "userId": 3,
+    "id": 28,
+    "title": "delectus ullam et corporis nulla voluptas sequi",
+    "body": "non et quaerat ex quae ad maiores\nmaiores recusandae totam aut blanditiis mollitia quas illo\nut voluptatibus voluptatem\nsimilique nostrum eum"
+}
+AND "title" is set with name "Default value",
+AND "body" is set with name "Default value",
+AND a body request is sent with structure like this:
+{
+    "id": 28,
+    "title": "Default value",
+    "body": "Default value"
+}
+WHEN the server response is status code: 200OK,
+THEN server respond back with body result printed like this:
+{
+    "id": 28,
+    "title": "Default value",
+    "body": "Default value"
+}
+
+
+Test Case 6: Successfull put request (Updated values) (PASS)
+GIVEN a put request is sent to the endpoint (https://jsonplaceholder.typicode.com/posts),
+AND a put request is made for the user with the id "28" (https://jsonplaceholder.typicode.com//posts/28)
+AND user with the id "28" has values like this:
+{
+    "userId": 3,
+    "id": 28,
+    "title": "delectus ullam et corporis nulla voluptas sequi",
+    "body": "non et quaerat ex quae ad maiores\nmaiores recusandae totam aut blanditiis mollitia quas illo\nut voluptatibus voluptatem\nsimilique nostrum eum"
+}
+AND "title" is set with name "Updated value",
+AND "body" is set with name "Updated value",
+AND a body request is sent with structure like this:
+{
+    "title": "Updated value",
+    "body": "Updated value"
+}
+WHEN the server response is status code: 200OK,
+THEN server respond back with body result printed like this:
+{
+    "id": 28,
+    "title": "Updated value",
+    "body": "Updated value"
+}
+
+
+Test Case 7: Successfull delete request (PASS)
+GIVEN a delete request is sent to the endpoint (https://jsonplaceholder.typicode.com/posts),
+AND a delete request is made for the user with the id "20" (https://jsonplaceholder.typicode.com/posts/20)
+WHEN the server response is status code: 200OK,
+THEN server respond back with body result printed like this: {}
+
+
+
+
+
+
+
+
+

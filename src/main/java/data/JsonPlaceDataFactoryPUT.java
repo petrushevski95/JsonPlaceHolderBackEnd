@@ -6,26 +6,25 @@ public class JsonPlaceDataFactoryPUT {
 
     private final JsonPlaceModelRequestPUT request;
 
-    public JsonPlaceDataFactoryPUT(JsonPlaceModelRequestPUT requestBody){
+    public JsonPlaceDataFactoryPUT(JsonPlaceModelRequestPUT requestBody) {
         request = requestBody;
-
     }
 
-    public JsonPlaceDataFactoryPUT setTitle(String value){
-        if(value.length() > 20)
+    public JsonPlaceDataFactoryPUT setTitle(String value) {
+        if(value.length() > 50)
             throw new IllegalArgumentException("Title is too long (max 20 characters)");
         request.setTitle(value);
         return this;
     }
 
-    public JsonPlaceDataFactoryPUT setBody(String value){
-        if(value.length() > 40)
+    public JsonPlaceDataFactoryPUT setBody(String value) {
+        if(value.length() > 50)
             throw new IllegalArgumentException("Body is too long (max 40 characters)");
         request.setBody(value);
         return this;
     }
 
-    public JsonPlaceModelRequestPUT createRequest(){
+    public JsonPlaceModelRequestPUT createRequest() {
         return request;
     }
 
