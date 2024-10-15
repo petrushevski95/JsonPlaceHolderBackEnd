@@ -5,7 +5,6 @@ import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import models.request.JsonPlaceHolderModelPostRequest;
-import models.request.JsonPlaceHolderModelPutRequest;
 
 import static utils.Configuration.BASE_URL;
 

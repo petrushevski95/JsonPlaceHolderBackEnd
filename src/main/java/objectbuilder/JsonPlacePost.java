@@ -1,7 +1,6 @@
 package objectbuilder;
 
 import models.request.JsonPlaceHolderModelPostRequest;
-import models.request.JsonPlaceHolderModelPutRequest;
 
 public class JsonPlacePost {
 
