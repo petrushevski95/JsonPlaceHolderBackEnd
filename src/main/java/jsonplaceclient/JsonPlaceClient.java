@@ -37,7 +37,7 @@ public class JsonPlaceClient {
                 .thenReturn();
     }
 
-    public Response putRequest(JsonPlaceHolderModelPutRequest requestBody, String id){
+    public Response putRequest(JsonPlaceHolderModelPostRequest requestBody, String id){
         return RestAssured
                 .given()
                 .contentType(ContentType.JSON)

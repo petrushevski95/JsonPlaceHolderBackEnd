@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class JsonPlaceHolderModelPutRequest {
 
-    int userId;
     String title;
     String body;
+    int userId;
 }
